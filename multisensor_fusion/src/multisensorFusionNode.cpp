@@ -121,7 +121,7 @@ void vio_callback(const nav_msgs::OdometryConstPtr &pose_msg)
     gpsPathPub.publish(*gpsPath);
     
     // write result to csv file
-    std::ofstream foutC("/home/xiaoqiang/output/vio_global.csv", std::ios::app);
+    std::ofstream foutC("/tmp/vins/output/vio_global.csv", std::ios::app);
     foutC.setf(std::ios::fixed, std::ios::floatfield);
     foutC.precision(0);
     foutC << pose_msg->header.stamp.toSec() * 1e9 << ",";
