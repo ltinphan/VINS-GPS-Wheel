@@ -3,14 +3,10 @@
 #include <signal.h>
 
 #include <ros/ros.h>
-// #include <sensor_msgs/Imu.h>
-// #include <sensor_msgs/Image.h>
 #include <sensor_msgs/NavSatFix.h>
 #include <custom_msgs/Encoder.h>
-// #include <cv_bridge/cv_bridge.h>
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
-// #include "parameters.h"
 
 const int nDelayTimes = 2;
 
@@ -19,17 +15,24 @@ const double RIGHT_D = 0.622806;
 const double WHEELBASE = 1.52439;
 const double ENC_RESOLUTION = 4096;
 
-custom_msgs::Encoder current_enc, last_enc;
+custom_msgs::Encoder current_enc;
+custom_msgs::Encoder last_enc;
 double x = 0.0, y = 0.0, theta = 0.0, vx = 0.0, vy = 0.0, vtheta = 0.0;
 double lastest_time = 0;
 
 ros::Publisher odomwheel_pub;
 ros::Subscriber sub_rawencoder;
 // tf::TransformBroadcaster odom_broadcaster;
-
+bool init_encoder = true;
 void rawencoder_callback(const custom_msgs::Encoder::ConstPtr &encoder_msg)
 {
     current_enc = *encoder_msg;
+    if (init_encoder)
+    {
+        last_enc = current_enc;
+        std::cout << "Init encoder" << std::endl;
+    }
+    init_encoder = false;
     double t = encoder_msg->header.stamp.toSec();
     double dt = t - lastest_time;
 
