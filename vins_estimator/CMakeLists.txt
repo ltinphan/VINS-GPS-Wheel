@@ -61,5 +61,11 @@ target_link_libraries(kaist_pub
     ${OpenCV_LIBS} 
     pthread
     ) 
+add_executable(odomwheel_pub src/data_pub/odomwheel_pub.cpp)
+target_link_libraries(odomwheel_pub
+    ${catkin_LIBRARIES}
+    ${OpenCV_LIBS} 
+    pthread
+    ) 
 
 
