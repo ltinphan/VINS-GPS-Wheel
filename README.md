@@ -58,3 +58,24 @@ Open four terminals, launch the vins_estimator, rviz and pubish the data file re
 
 # Contact us
 For any issues, please feel free to contact **[Longlong Wang](https://github.com/Wallong)**: <wanglonglong@tju.edu.cn>
+
+## Wheel-odom env setup
+1. create a workspace in your PC for openvins/vins-gps-wheel
+```
+mkdir -p ~/Documents/openvins_ws/src
+git clone -b eval_kaist https://github.com/ltinphan/open_vins.git
+mkdir -p ~/Documents/vinsgps_ws/src
+git clone -b eval_br https://github.com/ltinphan/VINS-GPS-Wheel.git
+```
+2. Download slam_dataset in the link: 
+https://onedrive.live.com/?id=2340094B334615EE%212350&cid=2340094B334615EE
+unzip urban28-pankyo_data and urban28-pankyo_img to a folder name
+~/Document/slam_dataset/urban28_pankyo/
+Note: 
+    wheelodom.bag contains groudtruth and wheel odom, IMU data
+    urban28_partial.bag contains a short part of KAIST dataset (ground truth, IMU, Encoder, + camera) 
+3. Start Docker scripts to mount dataset and vins environment
+```
+./docker/run_share.sh
+```
+4. Play your ros bag
