@@ -56,8 +56,6 @@ Open four terminals, launch the vins_estimator, rviz and pubish the data file re
 ## References
 * J. Liu, W. Gao and Z. Hu, "Visual-Inertial Odometry Tightly Coupled with Wheel Encoder Adopting Robust Initialization and Online Extrinsic Calibration," 2019 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2019, pp. 5391-5397, doi: 10.1109/IROS40897.2019.8967607.
 
-# Contact us
-For any issues, please feel free to contact **[Longlong Wang](https://github.com/Wallong)**: <wanglonglong@tju.edu.cn>
 
 ## Wheel-odom env setup
 1. create a workspace in your PC for openvins/vins-gps-wheel
