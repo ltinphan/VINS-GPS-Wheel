@@ -58,6 +58,9 @@ Open four terminals, launch the vins_estimator, rviz and pubish the data file re
 
 
 ## Wheel-odom env setup
+0. install nvidi-docker 2 toolkit
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#setting-up-nvidia-container-toolkit
+
 1. create a workspace in your PC for openvins/vins-gps-wheel
 ```
 mkdir -p ~/Documents/openvins_ws/src
